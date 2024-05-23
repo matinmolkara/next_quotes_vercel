@@ -1,95 +1,57 @@
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import getAllQuotes from '@/lib/getAllQuotes'
+import QuoteItem from "@/components/QuoteItem";
 
-export default function Home() {
+export default async function Home() {
+  const userData  = getAllQuotes()
+  const quotes = await userData
+//const quotes = getAllQuotes()
+// const quotes = await quotesData
+
+// const quotes = [
+//   {"q":"The purpose of life is to contribute in some way to making things better.","a":"Robert F. Kennedy","c":"73","h":"<blockquote>&ldquo;The purpose of life is to contribute in some way to making things better.&rdquo; &mdash; <footer>Robert F. Kennedy</footer></blockquote>"},
+//   {"q":"You don't need anybody to tell you who you are or what you are. You are what you are!","a":"John Lennon","c":"85","h":"<blockquote>&ldquo;You don't need anybody to tell you who you are or what you are. You are what you are!&rdquo; &mdash; <footer>John Lennon</footer></blockquote>"},
+//   {"q":"When you are able to employ your will always for constructive purposes, you become the controller of your destiny.","a":"Paramahansa Yogananda","c":"114","h":"<blockquote>&ldquo;When you are able to employ your will always for constructive purposes, you become the controller of your destiny.&rdquo; &mdash; <footer>Paramahansa Yogananda</footer></blockquote>"},
+//   {"q":"As a matter of fact is an expression that precedes many an expression that isn't.","a":"Laurence J. Peter","c":"81","h":"<blockquote>&ldquo;As a matter of fact is an expression that precedes many an expression that isn't.&rdquo; &mdash; <footer>Laurence J. Peter</footer></blockquote>"},
+//   {"q":"The difference between impossible and possible is a willing heart.","a":"Lolly Daskal","c":"66","h":"<blockquote>&ldquo;The difference between impossible and possible is a willing heart.&rdquo; &mdash; <footer>Lolly Daskal</footer></blockquote>"},
+//   {"q":"Make failure your teacher, not your undertaker.  ","a":"Zig Ziglar","c":"49","h":"<blockquote>&ldquo;Make failure your teacher, not your undertaker.  &rdquo; &mdash; <footer>Zig Ziglar</footer></blockquote>"},
+//   {"q":"If you try to get rid of fear and anger without knowing their meaning, they will grow stronger and return.","a":"Deepak Chopra","c":"106","h":"<blockquote>&ldquo;If you try to get rid of fear and anger without knowing their meaning, they will grow stronger and return.&rdquo; &mdash; <footer>Deepak Chopra</footer></blockquote>"}
+// ]
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+        <div className={styles.wrapper}>
+          <div className={styles.qoutesHolder}>
+              <div className={styles.qoutesHolder0}>
+                    <Image
+                      src="/up.png"
+                      alt="Quote Sign"
+                      
+                      width={80}
+                      height={80}
+                      
+                    />
+              </div>
+              <div className={styles.qoutesHolder1}>
+                
+                <QuoteItem quotes={quotes}/>
+                 
+  
+              </div>
+              <div className={styles.qoutesHolder2}>
+              <Image
+                      src="/down.png"
+                      alt="Quote Sign"
+                      
+                      width={80}
+                      height={80}
+                      
+                    />
+              </div>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        
     </main>
   );
 }
