@@ -18,8 +18,8 @@ function QuoteItem({quotes}) {
     const currentQuote = quotes && quotes.length > 0 ? quotes[quoteIndex] : null;
   return (
     <>
-         {currentQuote && ( <h2>{currentQuote.address.street}</h2> )}  {/* Check for currentQuote before rendering */}
-      {currentQuote && ( <h1 className="animate__animated animate__lightSpeedInLeft">{currentQuote.name}</h1> )}
+         {currentQuote && ( <h2>{currentQuote.a}</h2> )}  {/* Check for currentQuote before rendering */}
+      {currentQuote && ( <h1 className="animate__animated animate__lightSpeedInLeft">{currentQuote.q}</h1> )}
     </>
   )
 }
